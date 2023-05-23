@@ -11,6 +11,8 @@ import {
   Icon,
   Button,
   Label,
+  Header,
+  Divider,
 } from "semantic-ui-react";
 import { Activity } from "../../../app/layout/models/activitiy";
 import { useStore } from "../../../app/stores/stores";
