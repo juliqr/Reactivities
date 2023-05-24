@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { store, StoreContext } from "./app/stores/stores";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./app/router/Routes";
+import "react-calendar/dist/Calendar.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -12,7 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
   //<React.StrictMode>
   <StoreContext.Provider value={store}>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </StoreContext.Provider>
   //</React.StrictMode>
 );
