@@ -6,6 +6,7 @@ import { store, StoreContext } from "./app/stores/stores";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./app/router/Routes";
 import "react-calendar/dist/Calendar.css";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
