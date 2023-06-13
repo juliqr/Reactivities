@@ -3,7 +3,7 @@ import { Button, FormField, Label, Segment } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 import { observer } from "mobx-react-lite";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { Activity } from "../../../app/layout/models/activitiy";
+import { Activity } from "../../../app/layout/models/activity";
 import LoadingComponent from "../../../app/layout/LoadingComponent";
 import { v4 as uuid } from "uuid";
 import { Formik, Form, ErrorMessage } from "formik";
@@ -17,8 +17,6 @@ import MyDateInput from "../../../app/common/form/MyDateInput";
 export default observer(function ActivityForm() {
   const { activityStore } = useStore();
   const {
-    createActivity,
-    updateActivity,
     loading,
     loadActivity,
     loadingInitial,
@@ -26,14 +24,13 @@ export default observer(function ActivityForm() {
 
   const { id } = useParams();
 
-  const navigate = useNavigate();
 
   const [activity, setActivity] = useState<Activity>({
     id: "",
     title: "",
     category: "",
     description: "",
-    date: "",
+    date: null,
     city: "",
     venue: "",
   });
