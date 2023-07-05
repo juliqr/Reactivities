@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { router } from "../router/Routes";
 import { store } from "../stores/store";
 import { User, UserFormValues } from "../layout/models/user";
+import { config } from "process";
 
 const sleep = (delay: number) => {
   return new Promise((resolve) => {
@@ -12,6 +13,14 @@ const sleep = (delay: number) => {
 };
 
 axios.defaults.baseURL = "http://localhost:5000/api";
+
+const responseBody = <T>(response: AxiosResponse<T>) => response.data;
+
+axios.interceptors.request.use((config) => {
+  const token = store.commonStore.token;
+  if (token && config.headers) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
 
 axios.interceptors.response.use(
   async (response) => {
@@ -55,8 +64,6 @@ axios.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
-const responseBody = <T>(response: AxiosResponse<T>) => response.data;
 
 //*to get the post, puts, delete (CRUD op)
 
