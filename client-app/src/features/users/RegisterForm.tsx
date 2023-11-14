@@ -36,7 +36,7 @@ export default observer(function RegisterForm() {
             color="teal"
             textAlign="center"
           />
-          <MyTextInput placeholder="Display name" name="displayName" />
+          <MyTextInput placeholder="Display Name" name="displayName" />
           <MyTextInput placeholder="Username" name="username" />
           <MyTextInput placeholder="Email" name="email" />
           <MyTextInput placeholder="Password" name="password" type="password" />
@@ -52,7 +52,7 @@ export default observer(function RegisterForm() {
             )}
           />
           <Button
-            disabled={!isValid || dirty || isSubmitting}
+            disabled={!isValid || !dirty || isSubmitting}
             loading={isSubmitting}
             positive
             content="Register"
